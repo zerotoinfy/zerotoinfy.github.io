@@ -76,6 +76,7 @@
     'd.preparing': 'आपका PDF तैयार हो रहा है…', 'd.ready': 'रिज़्यूमे डाउनलोड हो गया।', 'd.pdfErr': 'PDF नहीं बन सका। कृपया पेज रीफ़्रेश करके फिर कोशिश करें।',
     'd.sending': 'भेजा जा रहा है…', 'd.sent': 'धन्यवाद! आपका संदेश भेज दिया गया है। मैं जल्द ही जवाब दूँगा।',
     'd.mailOpen': 'आपका ईमेल ऐप संदेश के साथ खुल रहा है। अगर नहीं खुले, तो लिखें: ', 'd.sendErr': 'संदेश नहीं भेजा जा सका। सीधे ईमेल करें: ',
+    'd.activate': 'संपर्क फ़ॉर्म अभी सेट किया जा रहा है, इसलिए संदेश नहीं भेजा जा सका। कृपया सीधे ईमेल करें:',
     'd.invalid': 'कृपया अपना नाम, सही ईमेल और संदेश भरें।', 'd.dark': 'डार्क थीम चालू करें', 'd.light': 'लाइट थीम चालू करें', 'd.lang': 'View in English',
     'd.updated': 'अपडेट'
   };
@@ -84,6 +85,7 @@
     'd.preparing': 'Preparing your PDF…', 'd.ready': 'Résumé downloaded.', 'd.pdfErr': 'Could not create the PDF. Please refresh the page and try again.',
     'd.sending': 'Sending…', 'd.sent': 'Thank you! Your message has been sent. I will get back to you soon.',
     'd.mailOpen': 'Your email app is opening with the message ready. If it does not, write to ', 'd.sendErr': 'The message could not be sent. Please email ',
+    'd.activate': 'The contact form is being set up and could not send yet. Please email me directly:',
     'd.invalid': 'Please fill in your name, a valid email and a message.', 'd.dark': 'Switch to dark theme', 'd.light': 'Switch to light theme', 'd.lang': 'हिन्दी में देखें',
     'd.updated': 'Updated'
   };
@@ -379,9 +381,18 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ name: vals.name, email: vals.email, phone: vals.phone, message: vals.message, _subject: subject, _template: 'table', _captcha: 'false', _honey: '' })
-      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || String(j.success) !== 'true') throw new Error('fail'); }); })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok || String(j.success) !== 'true') { var e = new Error('fail'); e.info = String(j.message || ''); throw e; }
+        }); })
         .then(function () { status.className = 'cf-status ok'; status.textContent = t('d.sent'); form.reset(); })
-        .catch(function () { status.className = 'cf-status err'; status.innerHTML = esc(t('d.sendErr')) + mailLink; })
+        .catch(function (e) {
+          var info = (e && e.info) || '';
+          if (window.console) console.warn('FormSubmit:', info || e);
+          status.className = 'cf-status err';
+          // Before the one-time activation, FormSubmit replies "This form needs Activation…" — show that so the owner knows what to do.
+          if (/activat/i.test(info)) { status.innerHTML = esc(t('d.activate')) + ' ' + mailLink; return; }
+          status.innerHTML = esc(t('d.sendErr')) + mailLink;
+        })
         .then(function () { btn.disabled = false; });
     });
   }
