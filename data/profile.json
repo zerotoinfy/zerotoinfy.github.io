@@ -1,0 +1,212 @@
+{
+  "site": {
+    "url": "https://zerotoinfy.github.io/",
+    "formsubmitId": "official.imtiazhussain@gmail.com",
+    "goatcounterCode": "",
+    "whatsappNumber": "",
+    "githubUser": "imtiazhussain1996",
+    "githubRepoCount": 6,
+    "githubHide": [],
+    "githubShowOnly": []
+  },
+
+  "person": {
+    "name": "Imtiaz Hussain",
+    "role": "Deputy Manager (Systems)",
+    "org": "State Bank of India",
+    "location": "Mumbai, Maharashtra, India",
+    "email": "official.imtiazhussain@gmail.com",
+    "resumePhone": "+91 95413 82889",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/imtiaz-choudhary-206965125/",
+      "github": "https://github.com/imtiazhussain1996",
+      "stackoverflow": "https://stackoverflow.com/users/10323637/imtiaz-hussain",
+      "instagram": "https://www.instagram.com/imtiax_king/",
+      "facebook": "https://www.facebook.com/immu4sada",
+      "twitter": "https://twitter.com/immuking011"
+    }
+  },
+
+  "profile": {
+    "en": "Deputy Manager (Systems) at State Bank of India, leading project management and delivery — with five years of full stack engineering behind it, building Angular and Spring Boot products, microservices and enterprise integrations.",
+    "hi": "भारतीय स्टेट बैंक में डिप्टी मैनेजर (सिस्टम्स), प्रोजेक्ट मैनेजमेंट और डिलीवरी का नेतृत्व — पाँच वर्षों के फुल स्टैक इंजीनियरिंग अनुभव के साथ: Angular और Spring Boot उत्पाद, माइक्रोसर्विसेज़ और एंटरप्राइज़ इंटीग्रेशन।"
+  },
+
+  "about": [
+    { "key": "role", "title": { "en": "Current Role", "hi": "वर्तमान भूमिका" }, "lines": [
+      ["Position", "Deputy Manager (Systems)"],
+      ["Organisation", "State Bank of India"],
+      ["Since", "23 June 2025"],
+      ["Focus", "Project management & delivery"]
+    ]},
+    { "key": "expertise", "title": { "en": "Expertise", "hi": "विशेषज्ञता" }, "lines": [
+      ["Delivery", "Planning, tracking, stakeholder coordination"],
+      ["Backend", "Java, Spring Boot, Microservices"],
+      ["Frontend", "Angular 2+"],
+      ["Cloud", "AWS, Azure, Google Cloud, Docker"]
+    ]},
+    { "key": "contact", "title": { "en": "Get in Touch", "hi": "संपर्क करें" }, "lines": [
+      ["Email", "official.imtiazhussain@gmail.com", "mailto:official.imtiazhussain@gmail.com"],
+      ["LinkedIn", "imtiaz-choudhary", "https://www.linkedin.com/in/imtiaz-choudhary-206965125/"],
+      ["GitHub", "imtiazhussain1996", "https://github.com/imtiazhussain1996"],
+      ["Based in", "Mumbai, Maharashtra"]
+    ]},
+    { "key": "beyond", "title": { "en": "Beyond Work", "hi": "काम से परे" }, "lines": [
+      ["Hobbies", "Anchoring, cooking, movies, music, bike riding"],
+      ["Languages", "Hindi, English, Urdu, Punjabi"],
+      ["Roots", "Poonch, Jammu & Kashmir"],
+      ["Loves", "Meeting new people"]
+    ]}
+  ],
+
+  "experience": [
+    {
+      "title": "Deputy Manager (Systems)", "org": "State Bank of India", "location": "",
+      "start": "Jun 2025", "end": "Present", "photo": "misleneous-mis1",
+      "summary": "Project management and delivery of technology projects.",
+      "bullets": [
+        "Project management and delivery of technology projects.",
+        "Planning, tracking and coordinating delivery from requirements through to rollout."
+      ],
+      "stack": ""
+    },
+    {
+      "title": "Software Engineer", "org": "ATCS Inc. (now Nagarro)", "location": "Jaipur",
+      "start": "Sep 2020", "end": "Jul 2023", "photo": "misleneous-mis2",
+      "summary": "EnCory (full stack) and RLE (front end) for global automotive and aftersales clients.",
+      "bullets": [
+        "EnCory: full stack development in Angular and Spring Boot on Postgres and Azure.",
+        "RLE: front end development in Angular with a Python and Postgres backend on Google Cloud.",
+        "Owned client communication, requirement gathering and code quality on both projects."
+      ],
+      "stack": "Angular · Spring Boot · Python · Postgres · Azure · GCP"
+    },
+    {
+      "title": "Associate Software Developer", "org": "RoboMQ Pvt. Ltd.", "location": "Jaipur",
+      "start": "Jun 2018", "end": "Sep 2020", "photo": "office-off8",
+      "summary": "Connect iPaaS — a no-code API and data integration platform for enterprises.",
+      "bullets": [
+        "Worked across frontend, backend and infrastructure with Java, Spring Boot, Docker and Angular on AWS.",
+        "Built connectors for Gmail, Outlook, Teams, SharePoint, Workday, ServiceNow, HubSpot, QuickBooks, DocuSign and Twilio.",
+        "Contributed to high- and low-level designs and carried out R&D tasks."
+      ],
+      "stack": "Java · Spring Boot · Microservices · Docker · Angular · AWS"
+    }
+  ],
+
+  "caseStudies": [
+    {
+      "title": "EnCory", "org": "ATCS (now Nagarro)", "years": "2020 – 2023", "role": "Full stack developer & client lead",
+      "problem": "Aftersales, engineering and supply chain teams worked from separate data, making it hard to optimise parts portfolios and manage returns.",
+      "delivered": [
+        "Built features end to end in Angular and Spring Boot on Postgres and Azure.",
+        "Ran requirement sessions directly with the client and turned them into deliverable scope.",
+        "Kept code quality high through reviews and shared standards."
+      ],
+      "stack": ["Angular", "Spring Boot", "Postgres", "Azure", "Jira"],
+      "outcome": ""
+    },
+    {
+      "title": "RLE", "org": "ATCS (now Nagarro)", "years": "2020 – 2023", "role": "Front end developer",
+      "problem": "Vehicle & Body and Powertrain & Chassis teams had to reconcile expected parts lists against what vendors actually delivered, by hand.",
+      "delivered": [
+        "Built the Angular front end for matching delivered parts against functional parts lists.",
+        "Generated missing-parts lists for follow-up with vendors.",
+        "Worked directly with the client on requirements and acceptance."
+      ],
+      "stack": ["Angular", "Python", "Postgres", "Google Cloud"],
+      "outcome": ""
+    },
+    {
+      "title": "Connect iPaaS", "org": "RoboMQ", "years": "2018 – 2020", "role": "Associate software developer",
+      "problem": "Business users needed to connect the SaaS apps they already owned without writing integration code.",
+      "delivered": [
+        "Built and maintained connectors for a dozen enterprise APIs, from Gmail and Outlook to Workday and ServiceNow.",
+        "Worked across Spring Boot microservices, the Angular UI and Docker-based AWS infrastructure.",
+        "Contributed to high- and low-level designs and R&D spikes."
+      ],
+      "stack": ["Java", "Spring Boot", "Microservices", "Docker", "Angular", "AWS"],
+      "outcome": ""
+    }
+  ],
+
+  "credentials": [],
+
+  "recommendations": [],
+
+  "education": [
+    { "years": "2014 – 2018", "title": "Bachelor of Technology, Computer Science & Engineering", "short": "B.Tech, Computer Science", "place": "Gyan Vihar School of Engg. & Tech., Jaipur", "detail": "Suresh Gyan Vihar University · CGPA 8.14 (75%)", "photo": "college-college1" },
+    { "years": "2013 – 2014", "title": "Higher Secondary Certificate (12th)", "short": "Class XII, CBSE", "place": "Jawahar Navodaya Vidyalaya, Poonch (J&K)", "detail": "Physics, Chemistry, Maths, Biology, English · CBSE · 78.80%", "icon": "book" },
+    { "years": "2011 – 2012", "title": "Secondary School Certificate (10th)", "short": "Class X, CBSE", "place": "Jawahar Navodaya Vidyalaya, Poonch (J&K)", "detail": "Maths, Science, S.St, English, Hindi · CBSE · CGPA 8.6", "icon": "cap" }
+  ],
+
+  "trainings": [
+    { "year": "2016", "title": "Core Java Technologies", "dates": "1 Jun – 15 Jul 2016", "duration": "6 weeks", "institute": "Institute of Programming (IOP), Jaipur", "tag": "Summer Internship" },
+    { "year": "2017", "title": "Advanced Java Technologies", "dates": "15 Jun – 30 Jul 2017", "duration": "6 weeks", "institute": "JavaHub, Gopalpura, Jaipur", "tag": "Summer Internship" },
+    { "year": "2017", "title": "Android Development", "dates": "15 Apr – 15 Jun 2017", "duration": "6 weeks", "institute": "Technoglobe (VSM Infotech), Jaipur", "tag": "Summer Internship" },
+    { "year": "2018", "title": "Linux, Java & Node.js", "dates": "2 Jul – 18 Aug 2018", "duration": "6 weeks", "institute": "SSDN Technologies, Gurugram", "tag": "Conducted by RoboMQ" }
+  ],
+
+  "activities": [
+    ["Workshop", "Android Development", "CDAC Sitapura, Jaipur"],
+    ["Workshop", "Internet of Things (IoT)", "i3 Indya Technologies"],
+    ["Seminar", "Big Data", "Gyan Vihar University, Jaipur"],
+    ["Seminar", "Bridging the Gap between India & Bharat", "Suresh Gyan Vihar University, Jaipur"],
+    ["Seminar", "Convergence of Technology & Management", "Suresh Gyan Vihar University, Jaipur"]
+  ],
+
+  "softSkills": [
+    "Honest, hardworking, optimistic, with a positive attitude.",
+    "Enthusiastic, highly motivated and a good team player.",
+    "Good communication and demonstration skills.",
+    "Committed to project deadlines and schedules.",
+    "Quick to grasp and learn new technology, accurately.",
+    "Flexibility and adaptability are my key strengths."
+  ],
+
+  "skills": {
+    "technical": [
+      { "title": "Core Programming", "icon": "code", "blurb": "Languages I build with every day.", "items": [["Core Java","vg"],["Angular 2+","vg"],["Python","f"],["Node.js","l"],["Android","f"]] },
+      { "title": "Frameworks", "icon": "layers", "blurb": "Frameworks and libraries for building and testing services.", "items": [["Spring Boot","vg"],["Spring REST","vg"],["Hibernate / ORM","vg"],["Microservices","vg"],["JUnit","vg"],["Maven","f"]] },
+      { "title": "Databases", "icon": "db", "blurb": "Relational, NoSQL and ledger stores.", "items": [["MySQL","vg"],["Redis","vg"],["PostgreSQL","g"],["MongoDB","f"],["Oracle","f"],["Hyperledger Fabric","a"]] },
+      { "title": "Web Development", "icon": "globe", "blurb": "Front ends, sites and documentation.", "items": [["HTML","vg"],["CSS","vg"],["WordPress","g"],["MkDocs","g"],["Jekyll","g"],["React","l"]] },
+      { "title": "IDEs / Editors", "icon": "monitor", "blurb": "Where the code gets written.", "items": [["Eclipse","vg"],["VS Code","vg"],["NetBeans","vg"],["DBeaver","vg"],["Android Studio","f"],["Typora","f"]] },
+      { "title": "Testing Tools", "icon": "check", "blurb": "Testing APIs and queries before they ship.", "items": [["Postman","vg"],["JUnit","vg"],["SoapUI","f"],["MySQL Workbench","f"]] },
+      { "title": "Cloud & Infrastructure", "icon": "cloud", "blurb": "Shipping and running services in the cloud.", "items": [["Docker","vg"],["RabbitMQ","vg"],["AWS (EC2, ECR, S3, SNS, SQS)","g"],["Azure","f"],["Google Cloud","f"],["Jenkins","f"],["Terraform","f"],["Kubernetes","l"]] },
+      { "title": "Version Control", "icon": "git", "blurb": "Branching, reviews and collaboration on code.", "items": [["Git","vg"],["GitHub","vg"],["GitHub Desktop","vg"]] },
+      { "title": "Security & Monitoring", "icon": "shield", "blurb": "Securing APIs and watching them run.", "items": [["OAuth","g"],["API keys","g"],["Basic Auth","g"],["Swagger","g"],["Prometheus","f"],["Sensu","f"]] }
+    ],
+    "nonTechnical": [
+      { "title": "Project Delivery", "icon": "flag", "blurb": "How work gets planned, tracked and shipped.", "items": [["Planning & tracking","vg"],["Stakeholder coordination","vg"],["Requirement gathering","vg"],["Agile / Scrum","vg"]] },
+      { "title": "Collaboration", "icon": "users", "blurb": "Staying in sync with teams and clients.", "items": [["Microsoft Teams","vg"],["Slack","vg"],["Zoom","vg"]] },
+      { "title": "Operating Systems", "icon": "term", "blurb": "Day-to-day working environments.", "items": [["Windows","vg"],["Ubuntu","vg"]] },
+      { "title": "Design & Docs", "icon": "doc", "blurb": "Writing things down and making them look right.", "items": [["Confluence","vg"],["SharePoint","g"],["Microsoft Office","vg"],["Adobe Photoshop","f"]] },
+      { "title": "Issue Tracking", "icon": "list", "blurb": "Keeping delivery visible.", "items": [["Jira","vg"]] },
+      { "title": "API Exposure", "icon": "plug", "blurb": "Applications whose APIs I have integrated with.", "items": [["Google (Gmail, Pub/Sub)","e"],["Microsoft (Outlook, Azure AD, Teams, SharePoint)","e"],["AWS S3","e"],["Workday (SOAP)","e"],["ServiceNow","e"],["HubSpot","e"],["QuickBooks","e"],["DocuSign","e"],["Twilio & Nexmo","e"],["Dropbox","e"],["SmartSheet","e"]] }
+    ]
+  },
+
+  "albums": [
+    { "title": "Home Minister", "caption": "One of the most memorable days of my life: meeting the Honourable Ministers of India, Sh. Rajnath Singh and Sh. Prakash Javadekar.", "alt": "Meeting the Home Minister",
+      "photos": [ {"file":"homeminister-hm1","caption":"","show":true}, {"file":"homeminister-hm2","caption":"","show":true}, {"file":"homeminister-hm3","caption":"","show":true}, {"file":"homeminister-hm4","caption":"","show":true} ] },
+    { "title": "Few Achievements", "caption": "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.", "alt": "Receiving an award",
+      "photos": [ {"file":"achievements-achievement2","caption":"","show":true}, {"file":"achievements-achievement1","caption":"","show":true}, {"file":"achievements-achievement3","caption":"","show":true} ] },
+    { "title": "Anchoring Love", "caption": "All the world is a stage. The stage is a magic circle where only the most real things happen.", "alt": "Anchoring on stage",
+      "photos": [ {"file":"onstage-stage1","caption":"","show":true}, {"file":"onstage-stage4","caption":"","show":true}, {"file":"onstage-stage7","caption":"","show":true}, {"file":"onstage-stage6","caption":"","show":true}, {"file":"onstage-stage3","caption":"","show":true}, {"file":"onstage-stage5","caption":"","show":true}, {"file":"onstage-stage2","caption":"","show":false}, {"file":"onstage-stage8","caption":"","show":false}, {"file":"onstage-stage9","caption":"","show":false}, {"file":"onstage-stage10","caption":"","show":false}, {"file":"onstage-stage11","caption":"","show":false} ] },
+    { "title": "Office Memories", "caption": "There is no magic formula for great company culture. Treat your people the way you would like to be treated.", "alt": "With office colleagues",
+      "photos": [ {"file":"office-off8","caption":"","show":true}, {"file":"office-off2","caption":"","show":true}, {"file":"office-off5","caption":"","show":true}, {"file":"office-off1","caption":"","show":true}, {"file":"office-off6","caption":"","show":true}, {"file":"office-off9","caption":"","show":true}, {"file":"office-off3","caption":"","show":false}, {"file":"office-off4","caption":"","show":false}, {"file":"office-off7","caption":"","show":false}, {"file":"office-off10","caption":"","show":false} ] },
+    { "title": "College Memories", "caption": "Friends, classrooms, fests and seminars: the years that shaped me at Gyan Vihar.", "alt": "College memories",
+      "photos": [ {"file":"college-college1","caption":"","show":true}, {"file":"college-college2","caption":"","show":true}, {"file":"college-college3","caption":"","show":true}, {"file":"college-college6","caption":"","show":true}, {"file":"college-college4","caption":"","show":true}, {"file":"college-college5","caption":"","show":true} ] },
+    { "title": "Miscellaneous Pictures", "caption": "A mixed collection of memories: rides, travel and everything in between.", "alt": "Travel and everyday life",
+      "photos": [ {"file":"misleneous-mis7","caption":"","show":true}, {"file":"misleneous-mis1","caption":"","show":true}, {"file":"misleneous-mis4","caption":"","show":true}, {"file":"misleneous-mis5","caption":"","show":true}, {"file":"misleneous-mis6","caption":"","show":true}, {"file":"misleneous-mis2","caption":"","show":true}, {"file":"misleneous-mis3","caption":"","show":false} ] }
+  ],
+
+  "quotes": [
+    { "text": "The way to get started is to quit talking and begin doing.", "by": "Walt Disney" },
+    { "text": "If life were predictable it would cease to be life, and be without flavor.", "by": "Eleanor Roosevelt" },
+    { "text": "Life is what happens when you're busy making other plans.", "by": "John Lennon" },
+    { "text": "Be bold enough to live life on your terms, and never, ever apologize for it.", "by": "Mandy Hale" }
+  ],
+
+  "notes": []
+}

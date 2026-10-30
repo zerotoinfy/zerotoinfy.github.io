@@ -1,0 +1,8 @@
+# GitHub Pages builds this site with Jekyll only to turn notes/*.md into pages.
+# Everything else (index.html, data/, assets/) is served exactly as-is.
+title: Imtiaz Hussain
+url: https://zerotoinfy.github.io
+permalink: pretty
+exclude:
+  - README.md
+  - .github
