@@ -377,24 +377,47 @@
         return;
       }
       btn.disabled = true; status.textContent = t('d.sending');
-      fetch('https://formsubmit.co/ajax/' + encodeURIComponent(d.site.formsubmitId), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name: vals.name, email: vals.email, phone: vals.phone, message: vals.message, _subject: subject, _template: 'table', _captcha: 'false', _honey: '' })
-      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) {
+
+      // FormSubmit wants the address/alias as-is in the path (keep "@" unencoded).
+      var target = String(d.site.formsubmitId).trim().replace(/[^A-Za-z0-9@._+-]/g, '');
+      var fields = { name: vals.name, email: vals.email, phone: vals.phone, message: vals.message, _replyto: vals.email, _subject: subject, _template: 'table', _captcha: 'false', _honey: '' };
+
+      // Plan B: a classic form POST (never blocked by CORS). FormSubmit redirects back here afterwards.
+      var classicPost = function () {
+        var back = location.origin + location.pathname + '?sent=1#contact';
+        var hf = document.createElement('form');
+        hf.method = 'POST'; hf.action = 'https://formsubmit.co/' + target; hf.style.display = 'none';
+        Object.keys(fields).concat(['_next']).forEach(function (k) {
+          var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = k === '_next' ? back : fields[k]; hf.appendChild(i);
+        });
+        document.body.appendChild(hf); hf.submit();
+      };
+
+      // Plan A: send in the background. FormData keeps this a "simple" request, so the browser skips the CORS preflight.
+      var fd = new FormData();
+      Object.keys(fields).forEach(function (k) { fd.append(k, fields[k]); });
+      fetch('https://formsubmit.co/ajax/' + target, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) {
           if (!r.ok || String(j.success) !== 'true') { var e = new Error('fail'); e.info = String(j.message || ''); throw e; }
         }); })
-        .then(function () { status.className = 'cf-status ok'; status.textContent = t('d.sent'); form.reset(); })
+        .then(function () { status.className = 'cf-status ok'; status.textContent = t('d.sent'); form.reset(); btn.disabled = false; })
         .catch(function (e) {
           var info = (e && e.info) || '';
           if (window.console) console.warn('FormSubmit:', info || e);
+          if (!info) { classicPost(); return; } // network/CORS problem → fall back to the classic post
           status.className = 'cf-status err';
-          // Before the one-time activation, FormSubmit replies "This form needs Activation…" — show that so the owner knows what to do.
-          if (/activat/i.test(info)) { status.innerHTML = esc(t('d.activate')) + ' ' + mailLink; return; }
-          status.innerHTML = esc(t('d.sendErr')) + mailLink;
-        })
-        .then(function () { btn.disabled = false; });
+          // Before the one-time activation, FormSubmit replies "This form needs Activation…".
+          if (/activat/i.test(info)) status.innerHTML = esc(t('d.activate')) + ' ' + mailLink;
+          else status.innerHTML = esc(t('d.sendErr')) + mailLink;
+          btn.disabled = false;
+        });
     });
+
+    // Back from a classic post: show the thank-you message once.
+    if (/[?&]sent=1/.test(location.search)) {
+      status.className = 'cf-status ok'; status.textContent = t('d.sent');
+      try { history.replaceState(null, '', location.pathname + '#contact'); } catch (e) {}
+    }
   }
 
   /* ---------- résumé PDF (generated in the browser) ---------- */
