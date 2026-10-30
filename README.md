@@ -55,7 +55,9 @@ These stay hidden until their list has at least one entry.
 
 | Setting | What it does |
 |---|---|
-| `formsubmitId` | **Empty:** the contact form opens the visitor's email app with the message filled in.<br>**Set:** the form sends from the page. Setup: put your email address here, send one test message from the live site, and click the confirmation link FormSubmit emails you. That email also gives you a random alias. Replace your address with the alias so it isn't visible in the code. No account or keys are needed. |
+| `web3formsKey` | **Recommended.** With a key, the contact form sends straight from the page. Get a free key at web3forms.com by entering your email address; they email it to you, with no password or account. The key is designed to be public in website code and only delivers messages to your inbox. Free tier: 250 messages a month. |
+| `formsubmitId` | Alternative service, used only if `web3formsKey` is empty. Put your email or FormSubmit alias here. |
+| *(both empty)* | The contact form opens the visitor's email app with the message filled in. |
 | `goatcounterCode` | Free, cookie-free visitor stats with no consent banner. Sign up at goatcounter.com, pick a code (e.g. `zerotoinfy`) and put it here. Résumé downloads are counted as events. |
 | `whatsappNumber` | Shows a WhatsApp chat button, e.g. `"919541382889"`. Leave empty to keep your number off the page. |
 | `githubHide` | Repo names to leave out of "On GitHub", e.g. `["testApp", "iframe"]`. |

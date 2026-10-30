@@ -371,53 +371,45 @@
       var mailto = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       var mailLink = '<a href="' + esc(mailto) + '">' + esc(email) + '</a>';
 
-      if (!d.site.formsubmitId) {
+      // Which delivery service? Web3Forms (recommended) → FormSubmit → the visitor's email app.
+      var w3k = String(d.site.web3formsKey || '').trim();
+      var fsId = String(d.site.formsubmitId || '').trim().replace(/[^A-Za-z0-9@._+-]/g, '');
+      if (!w3k && !fsId) {
         window.location.href = mailto;
         status.innerHTML = esc(t('d.mailOpen')) + mailLink;
         return;
       }
-      btn.disabled = true; status.textContent = t('d.sending');
 
-      // FormSubmit wants the address/alias as-is in the path (keep "@" unencoded).
-      var target = String(d.site.formsubmitId).trim().replace(/[^A-Za-z0-9@._+-]/g, '');
-      var fields = { name: vals.name, email: vals.email, phone: vals.phone, message: vals.message, _replyto: vals.email, _subject: subject, _template: 'table', _captcha: 'false', _honey: '' };
+      // FormData keeps this a "simple" request (no CORS preflight).
+      var fd = new FormData(), url, svc;
+      if (w3k) {
+        svc = 'Web3Forms'; url = 'https://api.web3forms.com/submit';
+        [['access_key', w3k], ['subject', subject], ['from_name', vals.name + ' (zerotoinfy.github.io)'], ['name', vals.name], ['email', vals.email],
+          ['phone', vals.phone], ['message', vals.message], ['replyto', vals.email], ['botcheck', '']].forEach(function (p) { fd.append(p[0], p[1]); });
+      } else {
+        svc = 'FormSubmit'; url = 'https://formsubmit.co/ajax/' + fsId; // keep "@" unencoded
+        [['name', vals.name], ['email', vals.email], ['phone', vals.phone], ['message', vals.message], ['_replyto', vals.email],
+          ['_subject', subject], ['_template', 'table'], ['_captcha', 'false'], ['_honey', '']].forEach(function (p) { fd.append(p[0], p[1]); });
+      }
 
-      // Plan B: a classic form POST (never blocked by CORS). FormSubmit redirects back here afterwards.
-      var classicPost = function () {
-        var back = location.origin + location.pathname + '?sent=1#contact';
-        var hf = document.createElement('form');
-        hf.method = 'POST'; hf.action = 'https://formsubmit.co/' + target; hf.style.display = 'none';
-        Object.keys(fields).concat(['_next']).forEach(function (k) {
-          var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = k === '_next' ? back : fields[k]; hf.appendChild(i);
-        });
-        document.body.appendChild(hf); hf.submit();
-      };
-
-      // Plan A: send in the background. FormData keeps this a "simple" request, so the browser skips the CORS preflight.
-      var fd = new FormData();
-      Object.keys(fields).forEach(function (k) { fd.append(k, fields[k]); });
-      fetch('https://formsubmit.co/ajax/' + target, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
+      btn.disabled = true; status.className = 'cf-status'; status.textContent = t('d.sending');
+      var timer = setTimeout(function () { if (window.AbortController && ctrl) ctrl.abort(); }, 15000);
+      var ctrl = window.AbortController ? new AbortController() : null;
+      fetch(url, { method: 'POST', headers: { Accept: 'application/json' }, body: fd, signal: ctrl ? ctrl.signal : undefined })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) {
-          if (!r.ok || String(j.success) !== 'true') { var e = new Error('fail'); e.info = String(j.message || ''); throw e; }
+          if (!r.ok || String(j.success) !== 'true') { var e = new Error('HTTP ' + r.status); e.info = String(j.message || ''); throw e; }
         }); })
-        .then(function () { status.className = 'cf-status ok'; status.textContent = t('d.sent'); form.reset(); btn.disabled = false; })
+        .then(function () { status.className = 'cf-status ok'; status.textContent = t('d.sent'); form.reset(); })
         .catch(function (e) {
           var info = (e && e.info) || '';
-          if (window.console) console.warn('FormSubmit:', info || e);
-          if (!info) { classicPost(); return; } // network/CORS problem → fall back to the classic post
+          if (window.console) console.warn(svc + ':', info || (e && e.message) || e);
           status.className = 'cf-status err';
-          // Before the one-time activation, FormSubmit replies "This form needs Activation…".
+          // FormSubmit only: before its one-time activation it replies "This form needs Activation…".
           if (/activat/i.test(info)) status.innerHTML = esc(t('d.activate')) + ' ' + mailLink;
-          else status.innerHTML = esc(t('d.sendErr')) + mailLink;
-          btn.disabled = false;
-        });
+          else status.innerHTML = esc(t('d.sendErr')) + mailLink; // service down/blocked: stay on the page, offer email
+        })
+        .then(function () { clearTimeout(timer); btn.disabled = false; });
     });
-
-    // Back from a classic post: show the thank-you message once.
-    if (/[?&]sent=1/.test(location.search)) {
-      status.className = 'cf-status ok'; status.textContent = t('d.sent');
-      try { history.replaceState(null, '', location.pathname + '#contact'); } catch (e) {}
-    }
   }
 
   /* ---------- résumé PDF (generated in the browser) ---------- */
