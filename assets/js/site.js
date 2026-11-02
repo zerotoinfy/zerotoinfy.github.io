@@ -603,7 +603,7 @@
     qs.addEventListener('mouseenter', function () { qAuto(false); });
     qs.addEventListener('focusin', function () { qAuto(false); });
 
-    fetch('data/profile.json', { cache: 'no-cache' })
+    fetch('data/profile.json?v=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(init)
       .catch(function (err) { console.error('Could not load data/profile.json', err); });
